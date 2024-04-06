@@ -1,4 +1,4 @@
-# BSSBags
+# sssBags
 
 ## Table of contents
 
@@ -16,14 +16,6 @@
 A virtual ecommerce website using Node js, Express js, and Mongoose.
 
 NOTE: Please read the RUN section before opening an issue.
-
-## Demo
-
-![screenshot](screenshot.png)
-
-The application is deployed to Heroku and can be accessed through the following link:
-
-[BSSBags on Heroku](https://best-bags.herokuapp.com/)
 
 The website resembles a real store and you can add products to your cart and pay for them. If you want to try the checkout process, you can use the dummy card number provided by stripe for testing which is 4242 4242 4242 4242 with any expiration date, CVC, and zip codes. Please <u><b>DO NOT</b></u> provide real card number and data.
 
