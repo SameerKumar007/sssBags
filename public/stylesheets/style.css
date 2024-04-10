@@ -316,31 +316,35 @@ hr.gradient-style {
 }
 
 .img-small {
-  height: 5%;
+  max-height: 50px; /* Adjust image height */
   margin: 2px;
 }
 
 .qty-display {
-  padding: 3px;
+  padding: 2px 5px; /* Adjust padding */
   border: 1px solid rgb(54, 54, 54);
   border-radius: 5px;
+  font-size: 12px; /* Adjust font size */
 }
 
-.fa-plus-square {
-  color: var(--green);
-  font-size: 25px;
-  margin: 2px;
-}
-
+.fa-plus-square,
 .fa-minus-square {
-  color: var(--dark-orange);
-  font-size: 25px;
+  font-size: 20px; /* Adjust font size */
   margin: 2px;
 }
 
 .fa-shopping-cart {
   font-size: 22px;
   padding-top: 0.3em;
+}
+
+.table {
+  margin-bottom: 0; /* Remove bottom margin to reduce spacing */
+}
+
+.table th,
+.table td {
+  padding: 0.5em; /* Adjust cell padding */
 }
 
 /* FOOTER */
