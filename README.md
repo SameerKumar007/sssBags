@@ -3,12 +3,10 @@
 ## Table of contents
 
 - [Introduction](#introduction)
-- [Demo](#demo)
 - [Run](#run)
 - [Technology](#technology)
 - [Features](#features)
 - [Database Models](#database)
-- [Color Palette](#colors)
 - [License](#license)
 
 ## Introduction
