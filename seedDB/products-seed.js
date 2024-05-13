@@ -42,7 +42,7 @@ async function seedDB() {
     "A Fahionable Set of Two Pink Travel Bags",
     "White and Black Hard Luggage",
     "Rainbow Dotted Duffle Bag Luggage",
-    "Blue and Gray Classic Suitcase",
+    "Vintage Starline Suitcase",
     "A Set of Three Hard Durable Suitcases",
     "Light Blue Hard Luggage",
     "Black Leather Vintage Suitcase",
@@ -56,7 +56,7 @@ async function seedDB() {
     "https://p1.pxfuel.com/preview/479/120/981/luggage-metallic-luguagge-case.jpg",
     "https://images.unsplash.com/photo-1565026057447-bc90a3dceb87?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1534&q=80",
     "https://cdn.pixabay.com/photo/2019/06/20/16/10/duffle-bag-4287485_960_720.png",
-    "https://p0.pikrepo.com/preview/74/133/blue-and-gray-suede-rolling-luggage-thumbnail.jpg",
+    "https://i.etsystatic.com/6004133/r/il/36087e/3783620622/il_680x540.3783620622_dobq.jpg",
     "https://cdn.pixabay.com/photo/2019/01/22/15/53/suitcases-3948389_960_720.png",
     "https://cdn.pixabay.com/photo/2019/07/09/11/52/travel-bag-4326738_960_720.jpg",
     "https://p0.pxfuel.com/preview/942/496/984/various-bag-bags-luggage.jpg",
@@ -69,11 +69,13 @@ async function seedDB() {
   const briefcases_titles = [
     "Aluminium Metal Suitcase",
     "Black Leather Durable Suitcase",
+    "Brown Leather Durable Suitcase",
   ];
 
   const briefcases_imgs = [
     "https://upload.wikimedia.org/wikipedia/commons/6/6d/Aluminium_Briefcase.jpg",
-    "http://res.freestockphotos.biz/pictures/1/1751-black-leather-briefcase-on-a-white-background-pv.jpg",
+    "https://m.media-amazon.com/images/I/91QoIz2wP4L._AC_UY1100_.jpg",
+    "https://m.media-amazon.com/images/I/A1G8DA37voL._SL1500_.jpg",
   ];
 
   //--------------------Mini Bags
@@ -99,7 +101,7 @@ async function seedDB() {
     "https://p1.pxfuel.com/preview/177/215/691/handbag-bag-today-the-postwoman-fashion-style-skin.jpg",
     "https://p2.piqsels.com/preview/392/1016/905/handbags-white-fashion-bag-shoulder-bag.jpg",
     "https://c.pxhere.com/photos/37/cb/camera_bag_scene_package_fashion-900156.jpg!d",
-    "https://c.pxhere.com/photos/94/0e/bag_dior_x_n-867928.jpg!d",
+    "https://www.dior.com/couture/ecommerce/media/catalog/product/S/a/1698155118_2ESWS006YKY_H27E_E01_ZH.jpg",
     "https://c.pxhere.com/photos/92/ad/bag_dior_u-867943.jpg!d",
     "https://c.pxhere.com/photos/5b/ea/bag_fashion_style-518819.jpg!d",
     "https://c.pxhere.com/photos/19/aa/bag_fashion_style-518820.jpg!d",
@@ -152,13 +154,13 @@ async function seedDB() {
     "Biege Kipling Pouche",
   ];
   const purses_imgs = [
-    "https://c.pxhere.com/photos/c2/fc/bag_fashion_style-518806.jpg!d",
+    "https://i.pinimg.com/736x/27/41/14/274114871d24eec938c40e50435f1c86--amelie.jpg",
     "https://images.unsplash.com/photo-1564222195116-8a74a96b2c8c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1534&q=80",
     "https://c.pxhere.com/photos/cb/9e/wallet_black_clutch_purse_leather_fashion_style_accessory-952715.jpg!d",
     "https://c.pxhere.com/photos/63/90/purse_handbag_fashion_bag_style_design_leather_accessory-780266.jpg!d",
     "https://c.pxhere.com/photos/2d/da/wallet_purple_wallet_purple_money_purse_billfold_lavender_fashion-863005.jpg!d",
     "https://images.unsplash.com/photo-1563904092230-7ec217b65fe2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1534&q=80",
-    "https://www.publicdomainpictures.net/pictures/60000/velka/leather-purse-isolated-background.jpg",
+    "https://www.labellov.com/media/catalog/product/cache/0e2abc934cfdd4ea2c7369b2177f3605/2/0/2036_dior_brown_leather_saddle_bag_wallet_1.jpg",
     "https://c.pxhere.com/photos/94/29/bag_handbag_purse_pink_red_fashion_glamour_accessory-952105.jpg!d",
     "https://c.pxhere.com/photos/9b/57/bag_purse_handbag_fashion_style_accessory_white-1336949.jpg!d",
   ];
@@ -172,24 +174,24 @@ async function seedDB() {
     "Multicolored White Tote",
     "Owl White Cotton Tote",
     "Simple Grey Zipped Tote",
-    "Earth Positive Tote Bag",
+    "Wild Grasses Organic Tote Bag",
     "Deep Purple Handstamped Tote",
     "White Cotton Tote with Drawings",
     "Grey Wolf Tote",
-    "Yellow and Green Bold Tote",
+    "Lilly Lemon Green Tote",
   ];
   const totes_imgs = [
     "https://p1.pxfuel.com/preview/1021/986/529/bag-cotton-cotton-bag-textile-wall-white.jpg",
     "https://p1.pxfuel.com/preview/741/996/910/handbag-fashion-fashionable-woman.jpg",
     "https://p1.pxfuel.com/preview/58/205/88/shop-bag-bags-sale.jpg",
     "https://p1.pxfuel.com/preview/367/279/652/bag-bag-elephant-cloth-bag.jpg",
-    "https://p0.pikrepo.com/preview/627/393/white-blue-and-red-owl-print-tote-bag.jpg",
+    "https://adn-static1.nykaa.com/nykdesignstudio-images/pub/media/catalog/product/0/6/0675040SB14Owl_1.jpg",
     "https://farm5.staticflickr.com/4022/4714518639_8d9e06be13_b.jpg",
-    "https://live.staticflickr.com/3538/3674472019_727d8c4669.jpg",
-    "https://live.staticflickr.com/5161/5342130557_7fa8cc5935_b.jpg",
+    "https://imagedelivery.net/0ObHXyjKhN5YJrtuYFSvjQ/i-c54ea5b2-ffdf-4487-bcb0-3aebdb0ad9e3-Wlld-Grasses-organic-tote-bag-leaf-green-hand-printed-organic-cotton-Scenerylondon/display",
+    "https://i.etsystatic.com/5328251/r/il/4cb9cc/837313408/il_1588xN.837313408_b9gp.jpg",
     "https://p1.pxfuel.com/preview/368/540/34/bag-cotton-natural-cotton-bag-advertising-royalty-free-thumbnail.jpg",
     "https://p1.pxfuel.com/preview/726/975/813/bag-handbag-womans-bag-sport-bag.jpg",
-    "https://p1.pxfuel.com/preview/844/198/547/bag-burlap-advertising.jpg",
+    "https://cdn.vibecity.in/providers/64e349899d7a740011c3f448/2c7870bf-2b61-4593-9884-f53d83c418f1_0bf9258c-e9b5-427a-ba77-684e5ae8da9a.jpg",
   ];
 
   async function seedProducts(titlesArr, imgsArr, categStr) {
@@ -201,7 +203,7 @@ async function seedDB() {
           title: titlesArr[i],
           imagePath: imgsArr[i],
           description: faker.lorem.paragraph(),
-          price: faker.random.number({ min: 10, max: 50 }),
+          price: faker.random.number({ min: 1499, max: 6999 }),
           manufacturer: faker.company.companyName(0),
           available: true,
           category: categ._id,
