@@ -1,15 +1,29 @@
-const { check, validationResult } = require("express-validator");
+const { check, validationResult,sanitize } = require("express-validator");
+
 
 const userSignUpValidationRules = () => {
+  const allowedDomains = ['gmail.com', 'outlook.com', 'protonmail.com'];
+
+  const emailValidator = (value) => {
+    const emailParts = value.split('@');
+    const domain = emailParts[emailParts.length - 1];
+    if (!allowedDomains.includes(domain)) {
+      throw new Error('Email domain should be Gmail, Outlook, or Protonmail');
+    }
+    return true;
+  };
+
   return [
     check("name", "Name is required").not().isEmpty(),
-    check("email", "Invalid email").not().isEmpty().isEmail(),
-    check("password", "Please enter a password with 4 or more characters")
-      .not()
-      .isEmpty()
-      .isLength({ min: 4 }),
+    check("email", "Invalid email").not().isEmpty().isEmail().custom(emailValidator),
+    check("password", "Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character")
+    .not()
+    .isEmpty()
+    .isLength({ min: 5 })
+    .matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W])[A-Za-z\d\W]{4,}$/),
   ];
 };
+
 
 const userSignInValidationRules = () => {
   return [
