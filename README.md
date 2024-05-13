@@ -7,7 +7,6 @@
 - [Technology](#technology)
 - [Features](#features)
 - [Database Models](#database)
-- [License](#license)
 
 ## Introduction
 
