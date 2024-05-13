@@ -54,6 +54,12 @@ The application is built with:
 - Express Validator: used for form validation
 
 ## Features
+![Screenshot 2024-04-30 155031](https://github.com/SameerKumar007/sssBags/assets/55011216/58885866-695a-4fe0-9394-9811d6bf8114)
+
+![Screenshot 2024-04-30 220915](https://github.com/SameerKumar007/sssBags/assets/55011216/3662e093-5978-4f53-8398-60f8a8156e71)
+
+![Screenshot (133)](https://github.com/SameerKumar007/sssBags/assets/55011216/e5f34715-d817-48a9-9d57-5f77692ea4d6)
+
 
 This app is like an online store for virtual bags, showing products and how to reach out.
 
