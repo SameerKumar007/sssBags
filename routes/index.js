@@ -1,6 +1,6 @@
 const express = require("express");
 const csrf = require("csurf");
-const stripe = require("stripe")(process.env.STRIPE_PRIVATE_KEY);
+const stripe = require("stripe")('sk_test_51Ohq4QSCIrVLpeErCfKw5Ibj3ysLmyDC0ao6WNJaEzo2QFNSuqzdfvxkoRmQt1Q1TF4VzQNB26rwEOpJwTmZffTN00UGuU1mXf');
 const Product = require("../models/product");
 const Category = require("../models/category");
 const Cart = require("../models/cart");
@@ -218,48 +218,43 @@ router.get("/checkout", middleware.isLoggedIn, async (req, res) => {
 });
 
 // POST: handle checkout logic and payment using Stripe
+const crypto = require('crypto');
+
 router.post("/checkout", middleware.isLoggedIn, async (req, res) => {
   if (!req.session.cart) {
     return res.redirect("/shopping-cart");
   }
+  
   const cart = await Cart.findById(req.session.cart._id);
-  stripe.charges.create(
-    {
-      amount: cart.totalCost * 1,
-      currency: "inr",
-      source: req.body.stripeToken,
-      description: "Test charge",
+
+  // Generate random payment ID
+  const paymentId = crypto.randomBytes(16).toString("hex");
+
+  const order = new Order({
+    user: req.user,
+    cart: {
+      totalQty: cart.totalQty,
+      totalCost: cart.totalCost,
+      items: cart.items,
     },
-    function (err, charge) {
-      if (err) {
-        req.flash("error", err.message);
-        console.log(err);
-        return res.redirect("/checkout");
-      }
-      const order = new Order({
-        user: req.user,
-        cart: {
-          totalQty: cart.totalQty,
-          totalCost: cart.totalCost,
-          items: cart.items,
-        },
-        address: req.body.address,
-        paymentId: charge.id,
-      });
-      order.save(async (err, newOrder) => {
-        if (err) {
-          console.log(err);
-          return res.redirect("/checkout");
-        }
-        await cart.save();
-        await Cart.findByIdAndDelete(cart._id);
-        req.flash("success", "Successfully purchased");
-        req.session.cart = null;
-        res.redirect("/user/profile");
-      });
+    address: req.body.address,
+    paymentId: paymentId, // Use the random payment ID
+  });
+
+  order.save(async (err, newOrder) => {
+    if (err) {
+      console.log(err);
+      return res.redirect("/checkout");
     }
-  );
+
+    await cart.save();
+    await Cart.findByIdAndDelete(cart._id);
+    req.flash("success", "Successfully purchased");
+    req.session.cart = null;
+    res.redirect("/user/profile");
+  });
 });
+
 
 // create products array to store the info of each product in the cart
 async function productsFromCart(cart) {
