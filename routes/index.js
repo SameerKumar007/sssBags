@@ -1,6 +1,6 @@
 const express = require("express");
 const csrf = require("csurf");
-const stripe = require("stripe")('sk_test_51Ohq4QSCIrVLpeErCfKw5Ibj3ysLmyDC0ao6WNJaEzo2QFNSuqzdfvxkoRmQt1Q1TF4VzQNB26rwEOpJwTmZffTN00UGuU1mXf');
+const stripe = require("stripe")('');
 const Product = require("../models/product");
 const Category = require("../models/category");
 const Cart = require("../models/cart");
