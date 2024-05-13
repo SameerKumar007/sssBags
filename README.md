@@ -11,33 +11,32 @@
 
 ## Introduction
 
-A virtual ecommerce website using Node js, Express js, and Mongoose.
+Bags ecommerce website using MERN.
 
-NOTE: Please read the RUN section before opening an issue.
+Fell free to raise issue if you face somthing (' - ')
 
-The website resembles a real store and you can add products to your cart and pay for them. If you want to try the checkout process, you can use the dummy card number provided by stripe for testing which is 4242 4242 4242 4242 with any expiration date, CVC, and zip codes. Please <u><b>DO NOT</b></u> provide real card number and data.
+The website looks like a real store where you can put items in your cart and buy them. But instead of going through the usual checkout process, I'm experimenting with changing how the payment system works, particularly the Stripe API. So, for now, you can just add things to your cart and pay without going through the usual checkout steps.
 
 In order to access the admin panel on "/admin" you need to provide the admin email and password.
 
 ## Run
 
-To run this application, you have to set your own environmental variables. For security reasons, some variables have been hidden from view and used as environmental variables with the help of dotenv package. Below are the variables that you need to set in order to run the application:
+To run this application, you have to set your own environmental variables. For security reasons, some variables have been hidden from view and used as environmental(.env) variables with the help of dotenv package. Below are the variables that you need to set in order to run the application:
 
-- MONGO_URI: this is the connection string of your MongoDB Atlas database.
+- MONGO_URI: Here paste the connection string of your MongoDB Atlas database or Mongo db compass localhost string.
 
-- SESSION_SECRET: a secret message for the session. You can use any string here.
+- SESSION_SECRET: A secret message for the session. You can use any string here.
 
-- STRIPE_PRIVATE_KEY: the stripe package is used to process payment in the checkout route. To get this, you should set up a stripe account and put your private API key here.
+- STRIPE_PRIVATE_KEY: NOTE:It won't work until I update the Stripe API, which I'm currently working on.( if you know you can raise issue & if you fixed it you can try to push.
+- GMAIL_EMAIL, GMAIL_PASSWORD: the email and password given to nodemailer to send/receive the email. Please put a real email and password here because you will receive the messages sent from the contact us form on this email.(still facing issue while contacting)
 
-- GMAIL_EMAIL, GMAIL_PASSWORD: the email and password given to nodemailer to send/receive the email. Please put a real email and password here because you will receive the messages sent from the contact us form on this email.
-
-- ADMIN_EMAIL, ADMIN_PASSWORD: the email and password used to log into the admin panel using AdminBro. You can put any email and password here.
+- ADMIN_EMAIL, ADMIN_PASSWORD: The email and password used to log into the admin panel using AdminBro. You can put any email and password here.
 
 - ADMIN_COOKIE_NAME, ADMIN_COOKIE_PASSWORD: the cookie name and password used in the AdminBro authentication method. You can put any strings here.
 
-After you've set these environmental variables in the .env file at the root of the project, you need to navigate to the "seedDB" folder and run "node category-seed.js" and "node products-seed.js" to fill your empty MongoDB Atlas database.
+"After you've put these settings in the .env file at the project's main folder, go to the 'seedDB' folder and run 'node category-seed.js' and 'node products-seed.js' to fill your empty MongoDB database."(prefilled with some of images and faker )
 
-Now you can run "npm start" in the terminal and the application should work.
+Now, just type "npm start" in the terminal, and the app will run.
 
 ## Technology
 
@@ -48,80 +47,79 @@ The application is built with:
 - Express version 4.16.1
 - Bootstrap version 4.4.1
 - FontAwesome version 5.13.0
-- Stripe API v3: used for payment in the checkout page
+- Stripe API v3: used for payment in the checkout page( need to update so i bypassed it till the fix)
 - Mapbox API: used to show the map in the about us page
-- AdminBro: used and customized to implement the admin panel
+- AdminBro: used and customized to implement the admin panel (Need to update this also)
 - Nodemailer: used to send emails from the contact us form
 - Passport: used for authentication
 - Express Validator: used for form validation
 
 ## Features
 
-The application displays a virtual bags store that contains virtual products and contact information.
+This app is like an online store for virtual bags, showing products and how to reach out.
 
-Users can do the following:
+Users can:
 
-- Create an account, login or logout
-- Browse available products added by the admin
-- Add products to the shopping cart
-- Delete products from the shopping cart
-- Display the shopping cart
-- To checkout, a user must be logged in
-- Checkout information is processed using stripe and the payment is send to the admin
-- The profile contains all the orders a user has made
+- Sign up, log in, or log out
+- Look through products added by the admin
+- Add or remove products from the shopping cart
+- See what's in their shopping cart
+- To buy, users need to log in
+- Pay for their purchase with Stripe, which sends the payment to the admin
+- Check their order history in their profile
 
-Admins can do the following:
+Admins can:
 
-- Login or logout to the admin panel
-- View all the information stored in the database. They can view/add/edit/delete orders, users, products and categories. The cart model cannot be modified by an admin because a cart is either modified by the logged in user before the purchase or deleted after the purchase.
+- Log in or out of the admin panel
+- See and manage all the data in the database. They can view, add, edit, or delete orders, users, products, and categories. Admins can't change the cart because it's either handled by the user before buying or deleted after.
 
 ## Database
 
-All the models can be found in the models directory created using mongoose.
+All the data structures are in the models directory, using mongoose.
 
-### User Schema:
+### User:
 
-- username (String)
-- email (String)
-- password (String)
+- Username (text)
+- Email (text)
+- Password (text)
 
-### Category Schema:
+### Category:
 
-- title (String)
-- slug (String)
+- Name (text)
+- Slug (text)
 
-### Product Schema:
+### Product:
 
-- productCode (String)
-- title (String)
-- imagePath (String)
-- description (String)
-- price (Number)
-- category (ObjectId - a reference to the category schema)
-- manufacturer (String)
-- available (Boolean)
-- createdAt (Date)
+- Product Code (text)
+- Name (text)
+- Image Path (text)
+- Description (text)
+- Price (number)
+- Category (reference to category)
+- Manufacturer (text)
+- Availability (boolean)
+- Creation Date (date)
 
-### Cart Schema:
+### Cart:
 
-- items: an array of objects, each object contains: <br>
-  ~ productId (ObjectId - a reference to the product schema) <br>
-  ~ qty (Number) <br>
-  ~ price (Number) <br>
-  ~ title (String) <br>
-  ~ productCode (Number) <br>
-- totalQty (Number)
-- totalCost (Number)
-- user (ObjectId - a reference to the user schema)
-- createdAt
-  <br><br>
-  \*\*The reason for including the title, price, and productCode again in the items object is AdminBro. If we are to write our own admin interface, we can remove them and instead populate a product field using the product id. However, AdminBro doesn't populate deep levels, so we had to repeat these fields in the items array in order to display them in the admin panel.
+- Items: a list of objects, each with:
+  - Product ID (reference to product)
+  - Quantity (number)
+  - Price (number)
+  - Name (text)
+  - Product Code (number)
+- Total Quantity (number)
+- Total Cost (number)
+- User (reference to user)
+- Creation Date
 
-### Order Schema:
+### Order:
 
-- user (ObjectId - a reference to the user schema)
-- cart (instead of a reference, we had to structure an object identical to the cart schema because of AdminBro, so we can display the cart's contents in the admin interface under each order)
-- address (String)
-- paymentId (String)
-- createdAt (Date)
-- Delivered (Boolean)
+- User (reference to user)
+- Cart (a copy of the cart structure, not a reference, for display purposes)
+- Address (text)
+- Payment ID (text)
+- Creation Date (date)
+- Delivery Status (boolean)
+
+**Note: The repetition of title, price, and product code in the cart is due to the limitations of AdminBro. If using a custom admin interface, this repetition could be avoided.
