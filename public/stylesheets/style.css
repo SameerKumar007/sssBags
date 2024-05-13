@@ -321,15 +321,21 @@ hr.gradient-style {
 }
 
 .qty-display {
-  padding: 2px 5px; /* Adjust padding */
+  padding: 3px;
   border: 1px solid rgb(54, 54, 54);
   border-radius: 5px;
   font-size: 12px; /* Adjust font size */
 }
 
-.fa-plus-square,
+.fa-plus-square {
+  color: var(--green);
+  font-size: 25px;
+  margin: 2px;
+}
+
 .fa-minus-square {
-  font-size: 20px; /* Adjust font size */
+  color: var(--dark-orange);
+  font-size: 25px;
   margin: 2px;
 }
 
