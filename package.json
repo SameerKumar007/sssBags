@@ -1,10 +1,10 @@
 {
-  "name": "ecommerce-nodejs-website",
+  "name": "ecommerce website",
   "version": "1.0.0",
   "main": "app.js",
-  "description": "A virtual ecommerce website using Node js, Express js, and Mongoose.",
+  "description": "Bags ecommerce website using MERN",
   "scripts": {
-    "start": "node app.js",
+    "start": "start http://localhost:3000 && nodemon app.js",
     "dev": "nodemon app.js"
   },
   "dependencies": {
